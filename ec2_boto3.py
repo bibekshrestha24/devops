@@ -12,14 +12,15 @@ security_group.authorize_ingress(
     ToPort=80
 )
 
+key_pair = ec2.create_key_pair( KeyName='kobe')
+
 
 instance = ec2.create_instances(
     ImageId='ami-0a36eb8fadc976275',
     InstanceType='t2.micro',
-    KeyName='bibek',
+    KeyName='kobe',
     MinCount=1,
     MaxCount=1,
     SecurityGroupIds=['gigi']
 )
-
 
