@@ -1,9 +1,14 @@
 import boto3
-ec2 = boto3.resource('ec2')
-instance = ec2.create_instances(
-    ImageId='ami-0a36eb8fadc976275',
-    InstanceType='t2.micro',
-    KeyName='bibek',
-    MinCount=1,
-    MaxCount=1
-)    
+ec2 = boto3.resource('ec2', region_name='us-east-1')
+
+volume = ec2.create_volume(
+    AvailabilityZone='us-east-1a',
+    Size=4,
+    VolumeType='gp3',
+    Iops=3000
+)
+
+
+
+ 
+
